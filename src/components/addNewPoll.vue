@@ -6,6 +6,7 @@ import Form from './Form/Index.vue'
 import FormItem from './Form/Item.vue'
 
 const store = usePollStore()
+const emits = defineEmits(["close"])
 
 const poll = reactive({ id: store.polls.length + 1, question: '', options: [], answers: [], option1: '', option2: '', option3: '', option4: '' })
 
@@ -16,6 +17,7 @@ const addQuestionToPoll = function (valid: boolean) {
 
     // Send message
 
+    emits('close')
     return
   } else {
     return false
@@ -27,7 +29,7 @@ const addQuestionToPoll = function (valid: boolean) {
     <div class="modal__container">
       <div class="modal__header">
         <h2 class="modal__heading">Add New Poll</h2>
-        <button class="btn btn--small">Close</button>
+        <button class="btn btn--small" @click="emits('close')">Close</button>
       </div>
 
       <Form :model="poll" :rules="{}" required class="form" @submit="addQuestionToPoll">

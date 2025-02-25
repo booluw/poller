@@ -256,6 +256,47 @@ textarea.form__input {
 .opacity-0 { opacity: 0; }
 .text-xs { font-size: 12px; }
 .text-red-500 { color: var(---error); }
+.mt-3 { margin-top: 3rem;}
+
+/* Notification */
+
+.notify {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notify .notify__body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: .5rem;
+  background-color: white;
+  box-shadow: 0 2px rgba(0, 0, 0 .3);
+  border-bottom: 1px solid currentColor;
+  width: 290px;
+  padding: 12px;
+}
+
+.border-green-500 {
+  color: var(---primary);
+}
+
+.border-red-500 {
+  color: var(---error);
+}
+
+.border-orange-400 {
+  color: orange;
+}
+
+.text-[\/10px] { font-size: 10px; }
+.text-[\/12px] { font-size: 12px; }
 
 
 @keyframes select_option {

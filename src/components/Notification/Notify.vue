@@ -33,37 +33,26 @@ onMounted(() => {
   <Transition :duration="300" name="nested">
     <div
       v-if="show"
-      class="outer w-fit -translate-x-[50%] fixed top-0 left-[50%] p-5 flex items-center justify-center z-[99]"
+      class="outer notify"
     >
       <div
-        class="inner w-[290px] p-3 flex gap-5 items-center justify-between rounded-sm bg-white border-b-2 shadow"
+        class="inner notify__body"
         :class="
           type === 'success'
-            ? '!border-green-500'
+            ? 'border-green-500'
             : type === 'error'
-              ? '!border-red-500'
+              ? 'border-red-500'
               : 'border-orange-400'
         "
       >
         <div class="flex flex-col text-[10px]">
           <h2
-            class="font-bold text-[12px] capitalize"
-            :class="
-              type === 'success'
-                ? 'text-green-500'
-                : type === 'error'
-                  ? 'text-red-600'
-                  : 'text-orange-700'
-            "
+            class="notify__heading font-bold text-[12px] capitalize"
           >
             {{ title }}
           </h2>
           <p class="">{{ message }}</p>
         </div>
-        <button v-if="action" class="text-[14px] line-clamp-1 text-primary" @click="callAction()">
-          {{ actionText || 'Action' }}
-        </button>
-        <IconsClose v-else class="cursor-pointer opacity-50" @click="close()" />
       </div>
     </div>
   </Transition>

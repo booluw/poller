@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import AddNewPoll from './components/addNewPoll.vue';
+import { ref } from 'vue'
+import AddNewPoll from './components/addNewPoll.vue'
 
+const addNewPollModal = ref(false)
 </script>
 
 <template>
@@ -8,13 +10,11 @@ import AddNewPoll from './components/addNewPoll.vue';
     <header class="header">
       <section class="header__container">
         <div class="header__logo">Poll<span>.vue</span></div>
-        <router-link to="" class="header__link">
-          <button class="btn header__btn">Add New Question</button>
-        </router-link>
+        <button class="btn header__btn" @click="addNewPollModal = true">Add New Question</button>
       </section>
     </header>
 
     <RouterView />
-    <AddNewPoll />
+    <AddNewPoll v-if="addNewPollModal" @close="addNewPollModal = false" />
   </section>
 </template>
