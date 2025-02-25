@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue'
-import IconsClose from '@/components/icons/IconsClose.vue'
 
 export interface Notification {
   title: string
